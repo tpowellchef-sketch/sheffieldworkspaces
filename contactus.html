@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Sheffield Workspaces</title>
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-
+    
     <style>
         :root {
             --brand-charcoal: #2B2D42;
@@ -54,61 +54,68 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 12px 24px;
+            padding: 12px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
         }
 
         .brand-link {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px; /* Tightened gap between logo image and text */
             text-decoration: none;
+            min-width: 0;
         }
 
         .brand-logo {
-            height: 48px;
+            height: 42px;
             width: auto;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
         .brand-name {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--brand-charcoal);
             letter-spacing: -0.5px;
             text-transform: uppercase;
             line-height: 1.1;
+            white-space: nowrap;
         }
 
-            .brand-name span {
-                color: var(--brand-rust);
-                display: block;
-                font-size: 0.75rem;
-                font-weight: 600;
-                letter-spacing: 2px;
-            }
+        .brand-name span {
+            color: var(--brand-rust);
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             list-style: none;
+            align-items: center;
+            flex-shrink: 0;
         }
 
-            .nav-links a {
-                text-decoration: none;
-                color: var(--brand-charcoal);
-                font-weight: 600;
-                font-size: 0.95rem;
-                transition: color 0.2s;
-            }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brand-charcoal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
 
-                .nav-links a:hover,
-                .nav-links a.active {
-                    color: var(--brand-rust);
-                }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--brand-rust);
+        }
 
         /* MAIN LAYOUT */
         main {
@@ -124,16 +131,16 @@
             margin-bottom: 48px;
         }
 
-            .contact-header h1 {
-                font-size: 2.5rem;
-                color: var(--brand-charcoal);
-                margin-bottom: 12px;
-            }
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: var(--brand-charcoal);
+            margin-bottom: 12px;
+        }
 
-            .contact-header p {
-                color: var(--text-muted);
-                font-size: 1.1rem;
-            }
+        .contact-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
 
         .contact-grid {
             display: grid;
@@ -161,23 +168,23 @@
             margin-bottom: 20px;
         }
 
-            .phone-card h3 {
-                font-size: 1rem;
-                color: var(--brand-charcoal);
-                margin-bottom: 6px;
-            }
+        .phone-card h3 {
+            font-size: 1rem;
+            color: var(--brand-charcoal);
+            margin-bottom: 6px;
+        }
 
-            .phone-card a {
-                font-size: 1.25rem;
-                font-weight: 700;
-                color: var(--brand-rust);
-                text-decoration: none;
-                display: inline-block;
-            }
+        .phone-card a {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand-rust);
+            text-decoration: none;
+            display: inline-block;
+        }
 
-                .phone-card a:hover {
-                    text-decoration: underline;
-                }
+        .phone-card a:hover {
+            text-decoration: underline;
+        }
 
         .location-card {
             background-color: var(--light-bg);
@@ -187,16 +194,16 @@
             margin-bottom: 20px;
         }
 
-            .location-card h3 {
-                font-size: 1.1rem;
-                color: var(--brand-rust);
-                margin-bottom: 6px;
-            }
+        .location-card h3 {
+            font-size: 1.1rem;
+            color: var(--brand-rust);
+            margin-bottom: 6px;
+        }
 
-            .location-card p {
-                color: var(--text-muted);
-                font-size: 0.95rem;
-            }
+        .location-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
         /* FORM STYLES */
         .contact-form-wrapper h2 {
@@ -209,13 +216,13 @@
             margin-bottom: 20px;
         }
 
-            .form-group label {
-                display: block;
-                font-weight: 600;
-                font-size: 0.9rem;
-                color: var(--brand-charcoal);
-                margin-bottom: 8px;
-            }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--brand-charcoal);
+            margin-bottom: 8px;
+        }
 
         .form-control {
             width: 100%;
@@ -229,11 +236,11 @@
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-            .form-control:focus {
-                outline: none;
-                border-color: var(--brand-rust);
-                box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.15);
-            }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-rust);
+            box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.15);
+        }
 
         select.form-control {
             cursor: pointer;
@@ -257,9 +264,9 @@
             transition: background 0.2s, transform 0.1s;
         }
 
-            .btn-submit:hover {
-                background-color: #c0392b;
-            }
+        .btn-submit:hover {
+            background-color: #c0392b;
+        }
 
         /* FOOTER */
         footer {
@@ -272,11 +279,33 @@
             margin-top: auto;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE MOBILE FIXES */
         @media (max-width: 850px) {
             .contact-grid {
                 grid-template-columns: 1fr;
                 padding: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                padding: 10px 12px;
+            }
+            .brand-logo {
+                height: 36px;
+            }
+            .brand-name {
+                font-size: 0.95rem;
+            }
+            .brand-name span {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
+            .nav-links {
+                gap: 12px;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -341,7 +370,7 @@
             <!-- ENQUIRY FORM -->
             <div class="contact-form-wrapper">
                 <h2>Send an Enquiry</h2>
-
+                
                 <form action="https://formspree.io/f/tpowellchef@gmail.com" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name *</label>

@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Sheffield Workspaces</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-charcoal: #2B2D42;
+            --brand-rust: #E05A47;
+            --brand-steel: #34495E;
+            --light-bg: #F8F9FA;
+            --card-border: #E2E8F0;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--brand-charcoal);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+            .brand-name span {
+                color: var(--brand-rust);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--brand-charcoal);
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: color 0.2s;
+            }
+
+                .nav-links a:hover,
+                .nav-links a.active {
+                    color: var(--brand-rust);
+                }
+
+        /* MAIN LAYOUT */
+        main {
+            flex: 1;
+            padding: 60px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+            .contact-header h1 {
+                font-size: 2.5rem;
+                color: var(--brand-charcoal);
+                margin-bottom: 12px;
+            }
+
+            .contact-header p {
+                color: var(--text-muted);
+                font-size: 1.1rem;
+            }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            background-color: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* LOCATIONS & PHONE SIDEBAR */
+        .locations-info h2 {
+            font-size: 1.4rem;
+            color: var(--brand-charcoal);
+            margin-bottom: 24px;
+        }
+
+        .phone-card {
+            background-color: rgba(224, 90, 71, 0.08);
+            border: 1px solid rgba(224, 90, 71, 0.25);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            .phone-card h3 {
+                font-size: 1rem;
+                color: var(--brand-charcoal);
+                margin-bottom: 6px;
+            }
+
+            .phone-card a {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--brand-rust);
+                text-decoration: none;
+                display: inline-block;
+            }
+
+                .phone-card a:hover {
+                    text-decoration: underline;
+                }
+
+        .location-card {
+            background-color: var(--light-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            .location-card h3 {
+                font-size: 1.1rem;
+                color: var(--brand-rust);
+                margin-bottom: 6px;
+            }
+
+            .location-card p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+            }
+
+        /* FORM STYLES */
+        .contact-form-wrapper h2 {
+            font-size: 1.4rem;
+            color: var(--brand-charcoal);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: var(--brand-charcoal);
+                margin-bottom: 8px;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--brand-rust);
+                box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.15);
+            }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--brand-rust);
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+            .btn-submit:hover {
+                background-color: #c0392b;
+            }
+
+        /* FOOTER */
+        footer {
+            background-color: #1A1C23;
+            color: #94A3B8;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <img src="Images/logo.png" alt="Sheffield Workspaces Logo" class="brand-logo">
+                <div class="brand-name">
+                    Sheffield
+                    <span>Workspaces</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html" class="active">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- MAIN CONTACT CONTENT -->
+    <main>
+        <div class="contact-header">
+            <h1>Enquire About a Unit</h1>
+            <p>Fill out the form below or give us a call to enquire about space availability across our Sheffield locations.</p>
+        </div>
+
+        <div class="contact-grid">
+            <!-- LOCATION & PHONE DETAILS -->
+            <div class="locations-info">
+                <h2>Direct Contact</h2>
+
+                <!-- Direct Phone Number Card -->
+                <div class="phone-card">
+                    <h3>📞 Direct Phone Enquiries</h3>
+                    <a href="tel:07479760685">07479 760685</a>
+                    <p style="margin-top: 4px; font-size: 0.85rem; color: #64748B;">Call or message for quick availability updates.</p>
+                </div>
+
+                <h2>Our Sites</h2>
+
+                <div class="location-card">
+                    <h3>Waverley House</h3>
+                    <p>📍 Joiner St, Sheffield S3 8GW</p>
+                    <p style="margin-top: 6px; font-size: 0.85rem; color: #64748B;">
+                        Suited for creative studios, rehearsal spaces, coffee concepts, offices &amp; workshops.
+                    </p>
+                </div>
+
+                <div class="location-card">
+                    <h3>Carlisle House</h3>
+                    <p>📍 Sheffield S4 7QN</p>
+                    <p style="margin-top: 6px; font-size: 0.85rem; color: #64748B;">
+                        Suited for engineer workshops, gym/fitness suites, Houses of Praise &amp; storage units.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ENQUIRY FORM -->
+            <div class="contact-form-wrapper">
+                <h2>Send an Enquiry</h2>
+
+                <form action="https://formspree.io/f/tpowellchef@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="07123 456789">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="use_type">Intended Space Use *</label>
+                        <select id="use_type" name="intended_use" class="form-control" required>
+                            <option value="" disabled selected>Select space category...</option>
+                            <option value="Creative / Music Studio">Creative / Music Studio</option>
+                            <option value="Commercial / Office Space">Commercial / Office Space</option>
+                            <option value="Engineer Workshop">Engineer Workshop</option>
+                            <option value="Gym / Fitness Suite">Gym / Fitness Suite</option>
+                            <option value="House of Praise / Community">House of Praise / Community</option>
+                            <option value="Coffee Shop / Food & Beverage">Coffee Shop / Food &amp; Beverage</option>
+                            <option value="Storage Space">Storage Space</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferred_site">Preferred Location</label>
+                        <select id="preferred_site" name="preferred_location" class="form-control">
+                            <option value="Either / Any">Either Location</option>
+                            <option value="Waverley House (S3 8GW)">Waverley House (S3 8GW)</option>
+                            <option value="Carlisle House (S4 7QN)">Carlisle House (S4 7QN)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message / Space Requirements *</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your requirements (e.g., required square footage, target move-in date)..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+            <img src="Images/logo.png" alt="Sheffield Workspaces" style="height: 36px; filter: brightness(0) invert(1);">
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: #ffffff; letter-spacing: 1px;">SHEFFIELD WORKSPACES</span>
+        </div>
+        <p>Commercial Property Letting &amp; Space Solutions</p>
+        <p style="color: #64748B; font-size: 0.85rem; margin-top: 4px;">Waverley House (S3 8GW) &amp; Carlisle House (S4 7QN)</p>
+        <p style="font-size: 0.8rem; margin-top: 16px;">© 2026 Sheffield Workspaces. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

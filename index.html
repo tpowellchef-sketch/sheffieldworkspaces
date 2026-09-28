@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheffield Workspaces | Commercial Units & Property Letting</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-charcoal: #2B2D42;
+            --brand-rust: #E05A47;
+            --brand-steel: #34495E;
+            --light-bg: #F8F9FA;
+            --card-border: #E2E8F0;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--brand-charcoal);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+            .brand-name span {
+                color: var(--brand-rust);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--brand-charcoal);
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: color 0.2s;
+            }
+
+                .nav-links a:hover,
+                .nav-links a.active {
+                    color: var(--brand-rust);
+                }
+
+        .btn-primary {
+            background-color: var(--brand-rust);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-block;
+        }
+
+            .btn-primary:hover {
+                background-color: #c0392b;
+            }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(43, 45, 66, 0.85), rgba(43, 45, 66, 0.85)), url('Images/office.jpg') center/cover no-repeat;
+            color: #ffffff;
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #E2E8F0;
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* FEATURES / CATEGORIES */
+        .section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+                color: var(--brand-charcoal);
+                margin-bottom: 8px;
+            }
+
+            .section-title p {
+                color: var(--text-muted);
+                font-size: 1.05rem;
+            }
+
+        /* GALLERY & SPACES GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+            .card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+            }
+
+        .card-img-wrapper {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .card-img-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+
+        /* Split image grid for the combined gym unit */
+        .card-img-split {
+            display: flex;
+            height: 220px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card-img-split img {
+                width: 50%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--brand-rust);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+            .card-body h3 {
+                font-size: 1.25rem;
+                color: var(--brand-charcoal);
+                margin-bottom: 8px;
+            }
+
+            .card-body p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+                margin-bottom: 16px;
+            }
+
+        /* 2 BUILDINGS OVERVIEW */
+        .buildings-section {
+            background-color: var(--brand-charcoal);
+            color: #ffffff;
+            padding: 80px 24px;
+        }
+
+        .buildings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .buildings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .building-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .building-number {
+            color: var(--brand-rust);
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .address-pill {
+            display: inline-block;
+            background-color: rgba(224, 90, 71, 0.15);
+            color: #F4A261;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #1A1C23;
+            color: #94A3B8;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+            footer p {
+                margin-top: 8px;
+            }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <img src="Images/logo.png" alt="Sheffield Workspaces Logo" class="brand-logo">
+                <div class="brand-name">
+                    Sheffield
+                    <span>Workspaces</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Commercial Units Across 2 Prime Sheffield Sites</h1>
+            <p>Flexible workspaces tailored for creative studios, workshops, gym spaces, music rehearsal rooms, coffee shops, houses of praise, and storage.</p>
+
+            <div class="hero-badges">
+                <span class="badge">🎨 Creative & Music Studios</span>
+                <span class="badge">🏋️ Gym Spaces</span>
+                <span class="badge">⚙️ Engineer Workshops</span>
+                <span class="badge">☕ Coffee Shops</span>
+                <span class="badge">🙏 Houses of Praise</span>
+                <span class="badge">📦 Storage Units</span>
+            </div>
+
+            <a href="contactus.html" class="btn-primary">Enquire About a Unit</a>
+        </div>
+    </section>
+
+    <!-- SPACES GALLERY -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Available Units & Spaces</h2>
+            <p>Versatile commercial properties available at Waverley House & Carlisle House</p>
+        </div>
+
+        <div class="grid">
+            <!-- Studio / Creative Space -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">Creative & Music Studio</span>
+                    <img src="Images/studio.jpg" alt="Creative Studio Space">
+                </div>
+                <div class="card-body">
+                    <h3>Creative Studio Suite</h3>
+                    <p>Ideal for music production, rehearsal spaces, photography, audio recording, or creative workspaces.</p>
+                    <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center;">Enquire About Space</a>
+                </div>
+            </div>
+
+            <!-- Office / Commercial Space -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">Commercial & Office</span>
+                    <img src="Images/office.jpg" alt="Commercial Office Workspace">
+                </div>
+                <div class="card-body">
+                    <h3>Flexible Commercial Suite</h3>
+                    <p>Ideal for administrative offices, professional agencies, corporate hubs, or operational bases.</p>
+                    <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center;">Enquire About Space</a>
+                </div>
+            </div>
+
+            <!-- Unit One / Workshop / Storage -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">Workshop & Storage</span>
+                    <img src="Images/Unitone.jpg" alt="Unit One Workspace">
+                </div>
+                <div class="card-body">
+                    <h3>Unit One Workspace</h3>
+                    <p>Substantial floor space suited for engineering workshops, light industrial work, or storage.</p>
+                    <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center;">Enquire About Space</a>
+                </div>
+            </div>
+
+            <!-- Combined Gym Space (GYM.jpeg + GYM1.jpeg) -->
+            <div class="card">
+                <div class="card-img-split">
+                    <span class="card-tag">Fitness / Gym</span>
+                    <img src="Images/GYM.jpeg" alt="Gym Facilities View 1">
+                    <img src="Images/GYM1.jpeg" alt="Gym Facilities View 2" style="border-left: 2px solid #ffffff;">
+                </div>
+                <div class="card-body">
+                    <h3>Fitness & Gym Suite</h3>
+                    <p>Spacious open-plan layout with high ceilings, suited for personal training studios, movement, or full gym setups.</p>
+                    <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center;">Enquire About Space</a>
+                </div>
+            </div>
+
+            <!-- Church / House of Praise Space -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-tag">House of Praise & Community</span>
+                    <img src="Images/church.jpg" alt="House of Praise Hall Space">
+                </div>
+                <div class="card-body">
+                    <h3>House of Praise & Community Hall</h3>
+                    <p>Versatile hall space designed for worship services, community gatherings, cultural events, or group functions.</p>
+                    <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center;">Enquire About Space</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2 LOCATIONS OVERVIEW -->
+    <section class="buildings-section">
+        <div class="buildings-container">
+            <div style="text-align: center;">
+                <h2>Our 2 Locations</h2>
+                <p style="color: #94A3B8;">Conveniently situated properties offering modern amenities and flexible terms.</p>
+            </div>
+
+            <div class="buildings-grid">
+                <!-- Location 1 -->
+                <div class="building-box">
+                    <div class="building-number">01</div>
+                    <h3>Waverley House</h3>
+                    <div class="address-pill">📍 Joiner St, Sheffield S3 8GW</div>
+                    <p style="color: #94A3B8;">Central location providing flexible spaces for music rehearsal, creative studios, coffee concepts, offices, and workshop units.</p>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="building-box">
+                    <div class="building-number">02</div>
+                    <h3>Carlisle House</h3>
+                    <div class="address-pill">📍 Sheffield S4 7QN</div>
+                    <p style="color: #94A3B8;">Versatile site equipped for engineer workshops, gym and fitness setups, Houses of Praise, and secure storage units.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+            <img src="Images/logo.png" alt="Sheffield Workspaces" style="height: 36px; filter: brightness(0) invert(1);">
+            <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: #ffffff; letter-spacing: 1px;">SHEFFIELD WORKSPACES</span>
+        </div>
+        <p>Commercial Property Letting & Space Solutions</p>
+        <p style="color: #64748B; font-size: 0.85rem; margin-top: 4px;">Waverley House (S3 8GW) &amp; Carlisle House (S4 7QN)</p>
+        <p style="font-size: 0.8rem; margin-top: 16px;">© 2026 Sheffield Workspaces. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
